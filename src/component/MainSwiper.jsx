@@ -28,10 +28,7 @@ const MainSwiper = () => {
         .filter((el) => el.popularity > 800)
         .map((el) => (
           <SwiperSlide key={el.id} className='swiperSlide'>
-            <div>
-              <div>
-                <div className='bg_black'></div>
-              </div>
+            <div className='bg_black'>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${el.backdrop_path}`}
                 alt=''

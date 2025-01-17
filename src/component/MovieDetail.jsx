@@ -15,20 +15,26 @@ const MovieDetail = () => {
   return (
     <>
       <div className='detailContainer'>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${Detaildata.backdrop_path}`}
-        ></img>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${Detaildata.poster_path}`}
-        ></img>
-        <h3>{Detaildata.title}</h3>
-        <p>{parseInt(Detaildata.vote_average)}</p>
-        <ul>
-          {Detaildata.genres.map((el) => (
-            <li key={el.id}>{el.name}</li>
-          ))}
-        </ul>
-        <p>{Detaildata.overview}</p>
+        {/* <div
+          key={Detaildata.backdrop_path}
+          className='bgImg'
+          style={{
+            backgroundImage: `https://image.tmdb.org/t/p/w500/${Detaildata.backdrop_path}`,
+          }}
+        ></div> */}
+        <div className='detailContent'>
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${Detaildata.poster_path}`}
+          ></img>
+          <h3>{Detaildata.title}</h3>
+          <p>{parseInt(Detaildata.vote_average)}</p>
+          <ul>
+            {Detaildata.genres.map((el) => (
+              <li key={el.id}>{el.name}</li>
+            ))}
+          </ul>
+          <p>{Detaildata.overview}</p>
+        </div>
       </div>
     </>
   );
