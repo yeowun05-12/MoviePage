@@ -1,39 +1,44 @@
 import React from 'react';
-import data from '../assets/data/movieDetailData.json';
 import { useParams } from 'react-router-dom';
 import Layout from './Layout';
+import { useMovie } from './MovieProvider';
 
 const MovieDetail = () => {
+  const { movie, loading, error } = useMovie();
+
   const { id } = useParams();
 
-  const Data = Object.entries(data).map(([key, value]) => {
-    return [key, value];
-  });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error:{error}</p>;
 
-  const Detaildata = Object.fromEntries(Data);
+  const movieDetail = movie.find((el) => el.id === parseInt(id)); // useParams로 가지고 온 값은 parseInt메서드로 값을 가지고 올 수 있음. *반드시 기억할 것*
 
+  if (!movieDetail) {
+    return <p> 영화를 찾을 수 없습니다.</p>;
+  }
+
+  console.log(movieDetail);
   return (
     <>
       <div className='detailContainer'>
-        {/* <div
-          key={Detaildata.backdrop_path}
+        <div
+          // 배경이미지
           className='bgImg'
           style={{
-            backgroundImage: `https://image.tmdb.org/t/p/w500/${Detaildata.backdrop_path}`,
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetail.backdrop_path})`, // 이미지 넣을 때는 url()로 감싸줘야함.
           }}
-        ></div> */}
+        ></div>
+        {/* 상세정보 */}
         <div className='detailContent'>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${Detaildata.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`}
+            alt={movieDetail.title}
           ></img>
-          <h3>{Detaildata.title}</h3>
-          <p>{parseInt(Detaildata.vote_average)}</p>
-          <ul>
-            {Detaildata.genres.map((el) => (
-              <li key={el.id}>{el.name}</li>
-            ))}
-          </ul>
-          <p>{Detaildata.overview}</p>
+          <h3>{movieDetail.title}</h3>
+          {/* 평점 */}
+          <p>{parseInt(movieDetail.vote_average)}</p>
+          {/* 장르 */}
+          <p>{movieDetail.overview}</p>
         </div>
       </div>
     </>

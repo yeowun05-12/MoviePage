@@ -12,7 +12,6 @@ import 'swiper/css/pagination';
 const MainSwiper = () => {
   const movieData = data.results;
 
-  console.log(movieData[3]);
   return (
     <Swiper
       className='swiperWrapper'
