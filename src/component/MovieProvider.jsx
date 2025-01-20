@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { ACCESS_TOKEN, API_URL } from '../api/config';
+import axios from 'axios';
 
 const MovieContext = createContext();
 
@@ -11,19 +12,22 @@ const MovieProvider = ({ children }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch(`${API_URL}/movie/popular`, {
+        const response = await axios.get(`${API_URL}/movie/popular`, {
           headers: {
-            Authorization: `Bearer ${ACCESS_TOKEN}`,
-            'Content-Type': 'application/json;charset=utf-8',
+            Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
+          },
+          params: {
+            language: 'ko-KR',
           },
         });
+        //데이터 확인
 
-        if (!response.ok) {
+        if (response.status !== 200) {
           throw new Error('데이터를 불러오는 데 실패했어요!'); // 만약 response가 로딩 안 됐으면 에러 던져줘
         }
 
-        const data = await response.json();
-        setMovie(data.results);
+        console.log(response.data.results);
+        setMovie(response.data.results);
       } catch (err) {
         setError(err.message); // 에러 나면 잡아서 메시지 띄워줘~
       } finally {

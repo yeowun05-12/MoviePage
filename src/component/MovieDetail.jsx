@@ -38,6 +38,7 @@ const MovieDetail = () => {
           {/* 평점 */}
           <p>{parseInt(movieDetail.vote_average)}</p>
           {/* 장르 */}
+          {/* 줄거리 */}
           <p>{movieDetail.overview}</p>
         </div>
       </div>

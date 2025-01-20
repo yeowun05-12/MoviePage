@@ -8,6 +8,7 @@ const MovieCard = () => {
 
   // const movieData = data.results;
   console.log(movie);
+
   return (
     <div>
       <ul className='cardContainer'>
