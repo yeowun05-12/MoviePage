@@ -1,3 +1,5 @@
+import './scss/signUp.scss';
+
 const SignUp = () => {
   return (
     <fieldset className='sign_up_container'>
@@ -31,6 +33,7 @@ const SignUp = () => {
           />
         </label>
       </div>
+      <button type="submit" className="sign_up_btn">회원가입</button>
     </fieldset>
   );
 };

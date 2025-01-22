@@ -1,3 +1,5 @@
+import './scss/login.scss';
+
 const Login = () => {
   return (
     <div className='login_cantainer'>
