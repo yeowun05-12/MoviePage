@@ -1,23 +1,21 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
-import Layout from './Layout';
-import { useMovie } from './MovieProvider';
+import { useMovie } from '../hooks/useMovie';
+import './scss/moviedetail.scss';
 
-const MovieDetail = () => {
+const MovieDetail = ({ movies }) => {
+  const { id } = useParams(); // 이 친구가 반환하는 값은 문자열이므로 parseInt로 숫자로 변환해줘야함
   const { movie, loading, error } = useMovie();
-
-  const { id } = useParams();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error:{error}</p>;
 
-  const movieDetail = movie.find((el) => el.id === parseInt(id)); // useParams로 가지고 온 값은 parseInt메서드로 값을 가지고 올 수 있음. *반드시 기억할 것*
+  const allMovies = [...movie, ...movies];
+  const movieDetail = allMovies.find((el) => el.id === parseInt(id)); // 데이터에서 직접 가지고 온 값은 숫자이기 때문에 parseInt로 문자열에서 숫자열로 변환해준 것임 *반드시 기억할 것*
 
   if (!movieDetail) {
     return <p> 영화를 찾을 수 없습니다.</p>;
   }
 
-  console.log(movieDetail);
   return (
     <>
       <div className='detailContainer'>

@@ -1,11 +1,10 @@
-import React from 'react';
 import MovieCard from './MovieCard';
 import MainSwiper from './MainSwiper';
 
 const Main = () => {
   return (
     <>
-      <MainSwiper />
+      {/* <MainSwiper /> */}
       <MovieCard />
     </>
   );

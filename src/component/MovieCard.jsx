@@ -1,13 +1,10 @@
-import React from 'react';
-import data from '../assets/data/movieListData.json';
+// import data from '../assets/data/movieListData.json';
 import { Link } from 'react-router-dom';
-import { useMovie } from './MovieProvider';
+import { useMovie } from '../hooks/useMovie';
+import './scss/moviecard.scss';
 
 const MovieCard = () => {
-  const { movie, loading, error } = useMovie();
-
-  // const movieData = data.results;
-  console.log(movie);
+  const { movie } = useMovie();
 
   return (
     <div>

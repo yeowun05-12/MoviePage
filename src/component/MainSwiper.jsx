@@ -1,4 +1,3 @@
-import React from 'react';
 // Swiper React 컴포넌트와 모듈 불러오기
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -24,7 +23,7 @@ const MainSwiper = () => {
       autoplay={{ delay: 1000, disableOnInteraction: false }} // 사용자가 슬라이드 했어도 자동으로 슬라이드 유지
     >
       {movieData
-        .filter((el) => el.popularity > 800)
+        .filter((el) => el.popularity > 900)
         .map((el) => (
           <SwiperSlide key={el.id} className='swiperSlide'>
             <div className='bg_black'>
