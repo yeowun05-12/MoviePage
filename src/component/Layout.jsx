@@ -26,7 +26,6 @@ const Layout = ({ onSearch }) => {
       <header>
         <NavBar onSearch={onSearch} />
       </header>
-      <hr />
       <Outlet />
     </div>
   );

@@ -7,7 +7,7 @@ const MovieCard = () => {
   const { movie } = useMovie();
 
   return (
-    <div>
+    <div className='cardSection'>
       <ul className='cardContainer'>
         {movie
           .filter((el) => el.adult === false)

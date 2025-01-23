@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './scss/navbar.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,18 +34,23 @@ const NavBar = ({ onSearch }) => {
 
   return (
     <div className='nav'>
-      <h1 onClick={handleMain}>나도볼래</h1>
-      <img src='' alt='' className='logo' />
-      <input
-        type='text'
-        placeholder='지금 가장 핫한 영화는?🤔'
-        value={searchTerm}
-        onChange={handleSearchChange}
-        onKeyDown={handleKeyDown}
-      />
-      <div className='btns'>
-        <button onClick={handleLogin}>로그인</button>
-        <button onClick={handleSignUp}>회원가입</button>
+      <div className='nav_container'>
+        <FontAwesomeIcon onClick={handleMain} icon={faHome} className='home' />
+        <input
+          type='text'
+          placeholder='지금 가장 핫한 영화는?🤔'
+          value={searchTerm}
+          onChange={handleSearchChange}
+          onKeyDown={handleKeyDown}
+        />
+        <div className='btns'>
+          <button className='btn login_btn' onClick={handleLogin}>
+            로그인
+          </button>
+          <button className='btn signup_btn' onClick={handleSignUp}>
+            회원가입
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -15,8 +15,8 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    filter: blur(8px); /* 흐리게 */
-    z-index: -2;
+    filter: blur(10px); /* 흐리게 */
+    z-index: -1;
   }
 
   .bgImg::after {
@@ -28,7 +28,7 @@
     height: 100%;
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0.5) 1000%,
       rgba(0, 0, 0, 1) 100%
     );
     z-index: -1;

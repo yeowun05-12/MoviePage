@@ -2,7 +2,7 @@ import './scss/login.scss';
 
 const Login = () => {
   return (
-    <div className='login_cantainer'>
+    <div className='login_container'>
       <fieldset className='basics_login'>
         <h1> 로그인</h1>
         <input type='text' placeholder='아이디' name='id' />

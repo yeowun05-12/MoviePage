@@ -19,13 +19,18 @@ const MovieDetail = ({ movies }) => {
   return (
     <>
       <div className='detailContainer'>
-        <div
+        {/* <div
           // 배경이미지
           className='bgImg'
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movieDetail.backdrop_path})`, // 이미지 넣을 때는 url()로 감싸줘야함.
           }}
-        ></div>
+        ></div> */}
+        <img
+          className='bgImg'
+          src={`https://image.tmdb.org/t/p/w500/${movieDetail.backdrop_path}`}
+          alt=''
+        />
         {/* 상세정보 */}
         <div className='detailContent'>
           <img

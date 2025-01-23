@@ -38,17 +38,18 @@
       opacity: 0; // 처음엔 안 보이게 숨김
       transition: opacity 0.3s ease-in-out; // 천천히 나타나고 사라지게 부드러운 효과 적용
 
-      // h3 {
-      //   font-size: 18px;
-      //   text-align: center;
-      //   overflow: hidden; /* 넘치는 텍스트 숨기기 */
-      //   text-overflow: ellipsis; /* 넘치면 말줄임표(...) */
-      //   display: -webkit-box; /* 유연한 박스 설정 */
-      //   -webkit-line-clamp: 2; /* 최대 2줄까지만 표시 */
-      //   -webkit-box-orient: vertical; /* 세로 방향 정렬 */
-      //   line-height: 1.4; /* 줄 간격 조절 */
-      //   max-height: calc(1.4em * 2); /* 2줄 높이에 맞게 제한 */
-      // }
+      h3 {
+        padding: 5px 10px;
+        font-size: 18px;
+        text-align: center;
+        overflow: hidden; /* 넘치는 텍스트 숨기기 */
+        text-overflow: ellipsis; /* 넘치면 말줄임표(...) */
+        display: -webkit-box; /* 유연한 박스 설정 */
+        -webkit-line-clamp: 2; /* 최대 2줄까지만 표시 */
+        -webkit-box-orient: vertical; /* 세로 방향 정렬 */
+        line-height: 1.4; /* 줄 간격 조절 */
+        max-height: calc(1.4em * 2); /* 2줄 높이에 맞게 제한 */
+      }
     }
 
     &:hover .movieInfo {
